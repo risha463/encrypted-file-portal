@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure File Encryption Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔐 Secure File Encryption Portal</h1>
+      <p>Upload, encrypt, and decrypt your files safely.</p>
+    </header>
+
+    <main>
+      <!-- Upload Section -->
+      <section class="upload-section">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+          <label for="file">Select a file to upload:</label>
+          <input type="file" name="file" id="file" required>
+          <button type="submit">Upload & Encrypt</button>
+        </form>
+      </section>
+
+      {% if filename %}
+      <section class="result">
+        <p class="success">✅ File '<strong>{{ filename }}</strong>' uploaded & encrypted successfully!</p>
+
+        <h3>📁 Encrypted Files:</h3>
+        <ul>
+          {% for f in encrypted_files %}
+          <li>
+            {{ f }}
+            <form action="/decrypt" method="POST" class="decrypt-form">
+              <input type="hidden" name="filename" value="{{ f }}">
+              <button type="submit" class="decrypt-btn">Decrypt ⬇️</button>
+            </form>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+    </main>
+
+    <footer>
+      <p>© 2025 Secure Encryption Portal | Built with ❤️ by Risha Gupta</p>
+    </footer>
+  </div>
+</body>
+</html>
