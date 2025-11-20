@@ -45,3 +45,9 @@ python app.py
 
 
 Open in browser → http://127.0.0.1:5000/
+
+## 🎥 Project Demo Video
+
+👉 Click to Watch:  
+[🔗 Watch Video on Loom](https://www.loom.com/share/81a07c1655604b78ad49a9f200a01c80)
+
